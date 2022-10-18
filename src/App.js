@@ -1,6 +1,6 @@
 import "./App.css";
 import { useCallback, useRef, useState } from "react";
-import { useGetPeople } from "./molecules/utils/api";
+import { useGetPeople } from "./utils/api";
 import { RandomPeople } from "./molecules/RandomPeople/randomPeople";
 import { Filter } from "./molecules/Filter/filter";
 
@@ -8,6 +8,7 @@ function App() {
   const { people, loading, setGetMorePeople } = useGetPeople();
   const [searchInput, setSearchInput] = useState("");
   const [ascOrder, setAscOrder] = useState(true);
+  const [grid, setGrid] = useState(true);
 
   const observer = useRef();
 
@@ -31,11 +32,20 @@ function App() {
   );
 
   return (
-    <>
+    <div
+      style={{
+        padding: "1rem",
+        height: "100vh",
+        width: "100vw",
+        backgroundColor: "whitesmoke",
+      }}
+    >
       <Filter
         setSearchInput={setSearchInput}
-        setAscOrder={setAscOrder}
         ascOrder={ascOrder}
+        setAscOrder={setAscOrder}
+        grid={grid}
+        setGrid={setGrid}
       />
       <RandomPeople
         people={people}
@@ -44,7 +54,7 @@ function App() {
         lastPersonRef={lastPersonRef}
       />
       {loading && <div>LOADING...</div>}
-    </>
+    </div>
   );
 }
 

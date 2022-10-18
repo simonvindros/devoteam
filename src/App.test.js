@@ -1,5 +1,5 @@
 import React from "react";
-import { useGetPeople } from "./molecules/utils/api";
+import { useGetPeople } from "./utils/api";
 import { screen } from "@testing-library/react";
 import { renderHook } from "@testing-library/react-hooks";
 import { act } from "react-test-renderer";

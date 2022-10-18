@@ -1,6 +1,5 @@
-import { response } from "msw";
 import { useEffect, useState } from "react";
-import { Person } from "../../models";
+import { Person } from "../models";
 
 export const useGetPeople = () => {
   const [loading, setLoading] = useState(true);
