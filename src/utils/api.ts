@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { Person } from "../models";
+import { People } from "../models";
 
 export const useGetPeople = () => {
   const [loading, setLoading] = useState(true);
-  const [people, setPeople] = useState<Person[]>([]);
+  const [people, setPeople] = useState<People>([]);
   const [getMorePeople, setGetMorePeople] = useState(false);
 
   useEffect(() => {
@@ -11,7 +11,7 @@ export const useGetPeople = () => {
     setLoading(true);
     setGetMorePeople(false);
 
-    fetch(`https://randomuser.me/api/?results=10`)
+    fetch(`https://randomuser.me/api/?results=50`)
       .then((res) => res.json())
       .then((data) => {
         if (!isCancelled) {

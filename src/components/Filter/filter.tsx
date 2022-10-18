@@ -11,7 +11,7 @@ import {
   InputContainer,
   MobileWrapper,
 } from "./styled";
-import { Input } from "../../atoms/Input/input";
+import { Input } from "./Input/input";
 import { useWindowResize } from "../../utils/hooks";
 
 type Props = {
@@ -40,9 +40,9 @@ export const Filter: FC<Props> = ({
       <InputContainer>
         <IconButton onClick={() => setAscOrder(!ascOrder)}>
           {ascOrder ? (
-            <AiOutlineSortAscending size={"1.5rem"} />
+            <AiOutlineSortAscending size={"2rem"} />
           ) : (
-            <AiOutlineSortDescending size={"1.5rem"} />
+            <AiOutlineSortDescending size={"2rem"} />
           )}
         </IconButton>
         <Input
@@ -53,7 +53,7 @@ export const Filter: FC<Props> = ({
         />
       </InputContainer>
       <IconButton onClick={() => setGrid(!grid)}>
-        {grid ? <BsGrid size={"1.5rem"} /> : <BsList size={"1.5rem"} />}
+        {grid ? <BsGrid size={"2rem"} /> : <BsList size={"2rem"} />}
       </IconButton>
     </DesktopWrapper>
   ) : (
@@ -67,13 +67,13 @@ export const Filter: FC<Props> = ({
       <IconContainer>
         <IconButton onClick={() => setAscOrder(!ascOrder)}>
           {ascOrder ? (
-            <AiOutlineSortAscending size={"1.5rem"} />
+            <AiOutlineSortAscending size={"2rem"} />
           ) : (
-            <AiOutlineSortDescending size={"1.5rem"} />
+            <AiOutlineSortDescending size={"2rem"} />
           )}
         </IconButton>
         <IconButton onClick={() => setGrid(!grid)}>
-          {grid ? <BsGrid size={"1.5rem"} /> : <BsList size={"1.5rem"} />}
+          {grid ? <BsGrid size={"2rem"} /> : <BsList size={"2rem"} />}
         </IconButton>
       </IconContainer>
     </MobileWrapper>

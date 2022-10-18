@@ -1,8 +1,8 @@
 import "./App.css";
 import { useCallback, useRef, useState } from "react";
 import { useGetPeople } from "./utils/api";
-import { RandomPeople } from "./molecules/RandomPeople/randomPeople";
-import { Filter } from "./molecules/Filter/filter";
+import { RandomPeople } from "./components/RandomPeople/randomPeople";
+import { Filter } from "./components/Filter/filter";
 
 function App() {
   const { people, loading, setGetMorePeople } = useGetPeople();
@@ -34,6 +34,8 @@ function App() {
   return (
     <div
       style={{
+        display: "flex",
+        flexDirection: "column",
         padding: "1rem",
         height: "100vh",
         width: "100vw",
@@ -52,6 +54,8 @@ function App() {
         searchInput={searchInput}
         ascOrder={ascOrder}
         lastPersonRef={lastPersonRef}
+        loading={loading}
+        grid={grid}
       />
       {loading && <div>LOADING...</div>}
     </div>

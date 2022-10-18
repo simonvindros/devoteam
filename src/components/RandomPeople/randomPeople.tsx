@@ -1,11 +1,14 @@
 import React, { FC } from "react";
-import { People, Person } from "../../models";
+import { Card, Wrapper } from "./styled";
+import { People } from "../../models";
 
 type Props = {
   people: People;
   searchInput: string;
   lastPersonRef: React.LegacyRef<HTMLDivElement>;
   ascOrder: boolean;
+  loading: boolean;
+  grid: boolean;
 };
 
 const orderPeople = (people: People, searchInput: string, order: boolean) =>
@@ -23,20 +26,23 @@ export const RandomPeople: FC<Props> = ({
   searchInput,
   lastPersonRef,
   ascOrder,
+  loading,
+  grid,
 }) => {
   const peopleCards = orderPeople(people, searchInput, ascOrder);
+
   return (
-    <>
+    <Wrapper grid={grid}>
       {peopleCards.map((person, i) => {
         if (people.length === i + 1) {
           return (
-            <div key={person.login.uuid} ref={lastPersonRef}>
-              {person.name.first}
+            <div ref={lastPersonRef}>
+              <Card key={person.login.uuid}>{person.name.first}</Card>
             </div>
           );
         }
-        return <div key={person.login.uuid}>{person.name.first}</div>;
+        return <Card key={person.login.uuid}>{person.name.first}</Card>;
       })}
-    </>
+    </Wrapper>
   );
 };

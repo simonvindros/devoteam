@@ -31,13 +31,12 @@ export const IconButton = styled.button`
   padding: 0.25rem;
   background-color: transparent;
   border-radius: 0.5rem;
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   cursor: pointer;
   transition: all 0.3s;
   :hover {
     box-shadow: 0 0.075rem 0.5rem 0.25rem rgba(0, 0, 0, 0.25);
-    /* background-color: white; */
   }
 `;
 
