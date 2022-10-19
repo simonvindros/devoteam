@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   display: flex;
   max-width: 80rem;
   width: 100%;
-  padding: 3rem;
+  padding: 3rem 0rem;
 `;
 
 export const HeaderText = styled.h1`
