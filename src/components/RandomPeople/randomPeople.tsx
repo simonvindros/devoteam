@@ -1,6 +1,8 @@
 import React, { FC } from "react";
-import { Card, Wrapper } from "./styled";
+import { Wrapper } from "./styled";
 import { People } from "../../models";
+import { SVG } from "../../assets/SVG";
+import { RandomPerson } from "./RandomPerson/randomPerson";
 
 type Props = {
   people: People;
@@ -37,11 +39,25 @@ export const RandomPeople: FC<Props> = ({
         if (people.length === i + 1) {
           return (
             <div ref={lastPersonRef}>
-              <Card key={person.login.uuid}>{person.name.first}</Card>
+              <RandomPerson
+                key={person.login.uuid}
+                firstName={person.name.first}
+                lastName={person.name.last}
+                picture={person.picture.large}
+                city={person.location.city}
+              />
             </div>
           );
         }
-        return <Card key={person.login.uuid}>{person.name.first}</Card>;
+        return (
+          <RandomPerson
+            key={person.login.uuid}
+            firstName={person.name.first}
+            lastName={person.name.last}
+            picture={person.picture.large}
+            city={person.location.city}
+          />
+        );
       })}
     </Wrapper>
   );

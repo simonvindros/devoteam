@@ -39,7 +39,7 @@ function App() {
         padding: "1rem",
         height: "100vh",
         width: "100vw",
-        backgroundColor: "whitesmoke",
+        backgroundColor: "#ebe9e4",
       }}
     >
       <Filter
