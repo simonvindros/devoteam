@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
 import {
   AiOutlineSortDescending,
   AiOutlineSortAscending,
@@ -29,13 +29,9 @@ export const Filter: FC<Props> = ({
   grid,
   setGrid,
 }) => {
-  const { width, height } = useWindowResize();
-  const [isMobile, setIsMobile] = useState<boolean>();
-  useEffect(() => {
-    setIsMobile(width < height);
-  }, [width, height]);
+  const { width } = useWindowResize();
 
-  return !isMobile ? (
+  return width >= 600 ? (
     <DesktopWrapper>
       <InputContainer>
         <IconButton onClick={() => setAscOrder(!ascOrder)}>

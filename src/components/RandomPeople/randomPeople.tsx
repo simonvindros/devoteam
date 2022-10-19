@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import { Wrapper } from "./styled";
 import { People } from "../../models";
-import { SVG } from "../../assets/SVG";
 import { RandomPerson } from "./RandomPerson/randomPerson";
 
 type Props = {
@@ -9,7 +8,6 @@ type Props = {
   searchInput: string;
   lastPersonRef: React.LegacyRef<HTMLDivElement>;
   ascOrder: boolean;
-  loading: boolean;
   grid: boolean;
 };
 
@@ -28,7 +26,6 @@ export const RandomPeople: FC<Props> = ({
   searchInput,
   lastPersonRef,
   ascOrder,
-  loading,
   grid,
 }) => {
   const peopleCards = orderPeople(people, searchInput, ascOrder);
@@ -43,8 +40,9 @@ export const RandomPeople: FC<Props> = ({
                 key={person.login.uuid}
                 firstName={person.name.first}
                 lastName={person.name.last}
-                picture={person.picture.large}
+                picture={grid ? person.picture.large : person.picture.medium}
                 city={person.location.city}
+                grid={grid}
               />
             </div>
           );
@@ -54,8 +52,9 @@ export const RandomPeople: FC<Props> = ({
             key={person.login.uuid}
             firstName={person.name.first}
             lastName={person.name.last}
-            picture={person.picture.large}
+            picture={grid ? person.picture.large : person.picture.medium}
             city={person.location.city}
+            grid={grid}
           />
         );
       })}
