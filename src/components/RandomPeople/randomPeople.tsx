@@ -35,9 +35,8 @@ export const RandomPeople: FC<Props> = ({
       {peopleCards.map((person, i) => {
         if (people.length === i + 1) {
           return (
-            <div ref={lastPersonRef}>
+            <div key={person.login.uuid} ref={lastPersonRef}>
               <RandomPerson
-                key={person.login.uuid}
                 firstName={person.name.first}
                 lastName={person.name.last}
                 picture={grid ? person.picture.large : person.picture.medium}
